@@ -8,6 +8,7 @@ plugins {
 }
 
 kotlin {
+    // Configure Android and iOS targets
     androidTarget {
         compilations.all {
             kotlinOptions {
@@ -19,6 +20,7 @@ kotlin {
     iosArm64()
     iosSimulatorArm64()
 
+    // Configure CocoaPods settings
     cocoapods {
         version = "1.0"
         summary = "Some description for a Kotlin/Native module"
@@ -32,16 +34,13 @@ kotlin {
             embedBitcode(BitcodeEmbeddingMode.BITCODE)
         }
 
-        pod("shared") {
-            version = "1.0"
-            source = git("https://github.com/MarwanAziz/KKMIOS") {
-                tag = "1.0.0"
-            }
-        }
+        // Define the podspec for CocoaPods
+//        pod("Shared", null,  project.file("Shared.podspec"))
 
-        specRepos {
-            url("https://github.com/MarwanAziz/KKMIOS")
-        }
+        // Optionally configure spec repositories if needed
+        // specRepos {
+        //     url("https://github.com/MarwanAziz/KKMIOS")
+        // }
 
         xcodeConfigurationToNativeBuildType["CUSTOM_DEBUG"] = NativeBuildType.DEBUG
         xcodeConfigurationToNativeBuildType["CUSTOM_RELEASE"] = NativeBuildType.RELEASE
@@ -49,7 +48,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            //put your multiplatform dependencies here
+            // Put your multiplatform dependencies here
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
