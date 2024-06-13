@@ -25,6 +25,12 @@ kotlin {
         version = "1.0"
         summary = "Some description for a Kotlin/Native module"
         homepage = "https://www.cocoapods.org"
+        pod("sharedLibrary") {
+            version = "1.0"
+            source = git("https://github.com/MarwanAziz/KKMIOS") {
+                tag = "1.0.0"
+            }
+        }
 
         // Optional properties
         // Configure the Pod name here instead of changing the Gradle project name

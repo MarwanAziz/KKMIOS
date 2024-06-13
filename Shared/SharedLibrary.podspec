@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
     spec.vendored_frameworks      = 'build/cocoapods/framework/SharedLogic.framework'
     spec.libraries                = 'c++'
     spec.ios.deployment_target = '16.0'
-                
+    spec.dependency 'sharedLibrary', '1.0'
                 
     if !Dir.exist?('build/cocoapods/framework/SharedLogic.framework') || Dir.empty?('build/cocoapods/framework/SharedLogic.framework')
         raise "
