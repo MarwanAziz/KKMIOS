@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-    spec.name                     = 'SharedLibrary'
+    spec.name                     = 'Shared'
     spec.version                  = '1.0'
     spec.homepage                 = 'https://www.cocoapods.org'
     spec.source                   = { :http=> ''}
@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
     spec.vendored_frameworks      = 'build/cocoapods/framework/SharedLogic.framework'
     spec.libraries                = 'c++'
     spec.ios.deployment_target = '16.0'
-    spec.dependency 'sharedLibrary', '1.0'
+    spec.dependency 'shared', '1.0'
                 
     if !Dir.exist?('build/cocoapods/framework/SharedLogic.framework') || Dir.empty?('build/cocoapods/framework/SharedLogic.framework')
         raise "
@@ -29,7 +29,7 @@ Pod::Spec.new do |spec|
                 
     spec.script_phases = [
         {
-            :name => 'Build SharedLibrary',
+            :name => 'Build Shared',
             :execution_position => :before_compile,
             :shell_path => '/bin/sh',
             :script => <<-SCRIPT
